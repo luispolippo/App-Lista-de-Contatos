@@ -46,10 +46,11 @@ class HelperDB(
         var where:String? = null
         var args:Array<String> = arrayOf()
         if(isBuscaPorId){
-
+             where = "$COLUMNS_ID = ?"
+             args = arrayOf("$busca")
         }else {
-            var where = "$COLUMNS_ID = ?"
-            var args = arrayOf("$busca")
+             where = "$COLUMNS_NOME LIKE ?"
+             args = arrayOf("%$busca%")
         }
 
         var cursor = db.query(TABLE_NAME, null, where, args, null, null, null)

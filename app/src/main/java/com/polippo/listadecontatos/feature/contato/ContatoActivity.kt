@@ -31,7 +31,6 @@ class ContatoActivity: BaseActivity() {
         }
         progress.visibility = View.VISIBLE
         Thread(Runnable {
-            Thread.sleep(500)
             var lista = ContatoApplication.instance.helperDB?.buscarContatos("$idContato", true) ?: return@Runnable
             var contato =lista.getOrNull(0) ?:return@Runnable
             runOnUiThread{
@@ -53,7 +52,6 @@ class ContatoActivity: BaseActivity() {
         )
         progress.visibility = View.VISIBLE
         Thread(Runnable {
-            Thread.sleep(500)
             if(idContato == -1){
                 ContatoApplication.instance.helperDB?.salvarContato(contato)
             } else {
@@ -70,7 +68,6 @@ class ContatoActivity: BaseActivity() {
         if(idContato > -1){
             progress.visibility = View.VISIBLE
             Thread(Runnable {
-                Thread.sleep(500)
                 ContatoApplication.instance.helperDB?.deletarContato(idContato)
                 runOnUiThread{
                     progress.visibility = View.GONE
