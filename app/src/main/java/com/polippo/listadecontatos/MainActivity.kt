@@ -53,7 +53,7 @@ class MainActivity : BaseActivity() {
         val busca =etBuscar.text.toString()
         progress.visibility = View.VISIBLE
         Thread(Runnable{
-            Thread.sleep(1500)
+            Thread.sleep(500)
             var listaFiltrada: List<ContatosVO> = mutableListOf()
             try{
                 listaFiltrada = ContatoApplication.instance.helperDB?.buscarContatos(busca) ?: mutableListOf()
